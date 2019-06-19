@@ -4,4 +4,9 @@
 // the closed toggle button is disabled if the gate is locked
 // the locked toggle button is disabled if the gate is open
 
-// import { Controls } from './Controls';
+// shows the controls and display
+// import React from 'react'; 
+// import { render, fireEvent } from '@testing-library/react'; // << install this
+// import '@testing-library/react/cleanup-after-each';
+
+// import {Controls} from './Controls';
