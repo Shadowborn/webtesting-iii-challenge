@@ -34,15 +34,16 @@ describe('<Display />', () => {
 
   describe('Open Gate Button', () => {
     it('says close gate', () => {
-      const { getByText, queryByText } = render(<Display />);
+      const { getByText } = render(<Display />);
+      const { queryByText } = render(<Control />);
       // find the button
-      const button = getByText(/Close/i);
+      const button = getByText(/Open/i);
 
       // click it
       fireEvent.click(button);
 
       // confirm that "hello developers" is there
-      expect(queryByText(/Open/i)).toBeTruthy();
+      expect(queryByText(/Close/i)).toBeTruthy();
     });
   });
 });
