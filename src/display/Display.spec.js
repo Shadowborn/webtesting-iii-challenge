@@ -9,9 +9,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { render, fireEvent } from '@testing-library/react'; // << install this
 import '@testing-library/react/cleanup-after-each';
-
+import { getByTestId } from '@testing-library/dom';
 import Display from './Display';
-import Control from '../controls/Controls'
+import Control from '../controls/Controls';
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
@@ -45,5 +45,20 @@ describe('<Display />', () => {
       // confirm that "hello developers" is there
       expect(queryByText(/Close/i)).toBeTruthy();
     });
+  });
+  describe('LEDS tests', () => {
+    it('when locked or closed use the red-led class', () => {
+        const { container } = render(<Display />);    
+        const redLED = getByTestId(container, 'locked-unlocked')
+    
+        expect(redLED).toHaveClass('lock')
+    });
+    
+    // it('when locked or closed use the red-led class', () => {
+        
+    // const deleteButton = document.querySelector('[data-testid="delete-button"]')
+    
+    // expect(deleteButton).toHaveClass('extra')
+    // });
   });
 });
